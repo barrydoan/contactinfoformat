@@ -111,7 +111,8 @@
                                         "route": "CustomersObjectPage"
                                     }
                                 }
-                            }
+                            },
+                            "initialLoad": "Enabled"
                         }
                     }
                 },
