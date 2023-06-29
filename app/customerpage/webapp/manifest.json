@@ -1,137 +1,142 @@
 {
-  "_version": "1.49.0",
-  "sap.app": {
-    "id": "customerpage",
-    "type": "application",
-    "i18n": "i18n/i18n.properties",
-    "applicationVersion": {
-      "version": "0.0.1"
-    },
-    "title": "{{appTitle}}",
-    "description": "{{appDescription}}",
-    "resources": "resources.json",
-    "sourceTemplate": {
-      "id": "@sap/generator-fiori:lrop",
-      "version": "1.10.0",
-      "toolsId": "65a8a957-6780-485f-bd6a-81c65aebde33"
-    },
-    "dataSources": {
-      "mainService": {
-        "uri": "/contact/",
-        "type": "OData",
-        "settings": {
-          "annotations": [],
-          "localUri": "localService/metadata.xml",
-          "odataVersion": "4.0"
-        }
-      }
-    }
-  },
-  "sap.ui": {
-    "technology": "UI5",
-    "icons": {
-      "icon": "",
-      "favIcon": "",
-      "phone": "",
-      "phone@2": "",
-      "tablet": "",
-      "tablet@2": ""
-    },
-    "deviceTypes": {
-      "desktop": true,
-      "tablet": true,
-      "phone": true
-    }
-  },
-  "sap.ui5": {
-    "flexEnabled": true,
-    "dependencies": {
-      "minUI5Version": "1.115.0",
-      "libs": {
-        "sap.m": {},
-        "sap.ui.core": {},
-        "sap.ushell": {},
-        "sap.fe.templates": {}
-      }
-    },
-    "contentDensities": {
-      "compact": true,
-      "cozy": true
-    },
-    "models": {
-      "i18n": {
-        "type": "sap.ui.model.resource.ResourceModel",
-        "settings": {
-          "bundleName": "customerpage.i18n.i18n"
-        }
-      },
-      "": {
-        "dataSource": "mainService",
-        "preload": true,
-        "settings": {
-          "synchronizationMode": "None",
-          "operationMode": "Server",
-          "autoExpandSelect": true,
-          "earlyRequests": true
-        }
-      },
-      "@i18n": {
-        "type": "sap.ui.model.resource.ResourceModel",
-        "uri": "i18n/i18n.properties"
-      }
-    },
-    "resources": {
-      "css": []
-    },
-    "routing": {
-      "config": {},
-      "routes": [
-        {
-          "pattern": ":?query:",
-          "name": "CustomersList",
-          "target": "CustomersList"
+    "_version": "1.49.0",
+    "sap.app": {
+        "id": "customerpage",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
         },
-        {
-          "pattern": "Customers({key}):?query:",
-          "name": "CustomersObjectPage",
-          "target": "CustomersObjectPage"
-        }
-      ],
-      "targets": {
-        "CustomersList": {
-          "type": "Component",
-          "id": "CustomersList",
-          "name": "sap.fe.templates.ListReport",
-          "options": {
-            "settings": {
-              "entitySet": "Customers",
-              "variantManagement": "Page",
-              "navigation": {
-                "Customers": {
-                  "detail": {
-                    "route": "CustomersObjectPage"
-                  }
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:lrop",
+            "version": "1.10.0",
+            "toolsId": "65a8a957-6780-485f-bd6a-81c65aebde33"
+        },
+        "dataSources": {
+            "mainService": {
+                "uri": "/contact/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/metadata.xml",
+                    "odataVersion": "4.0"
                 }
-              }
             }
-          }
-        },
-        "CustomersObjectPage": {
-          "type": "Component",
-          "id": "CustomersObjectPage",
-          "name": "sap.fe.templates.ObjectPage",
-          "options": {
-            "settings": {
-              "editableHeaderContent": false,
-              "entitySet": "Customers"
-            }
-          }
         }
-      }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.115.0",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.ushell": {},
+                "sap.fe.templates": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "customerpage.i18n.i18n"
+                }
+            },
+            "": {
+                "dataSource": "mainService",
+                "preload": true,
+                "settings": {
+                    "synchronizationMode": "None",
+                    "operationMode": "Server",
+                    "autoExpandSelect": true,
+                    "earlyRequests": true
+                }
+            },
+            "@i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/i18n.properties"
+            }
+        },
+        "resources": {
+            "css": []
+        },
+        "routing": {
+            "routes": [
+                {
+                    "pattern": ":?query:",
+                    "name": "CustomersList",
+                    "target": "CustomersList"
+                },
+                {
+                    "pattern": "Customers({key}):?query:",
+                    "name": "CustomersObjectPage",
+                    "target": "CustomersObjectPage"
+                }
+            ],
+            "targets": {
+                "CustomersList": {
+                    "type": "Component",
+                    "id": "CustomersList",
+                    "name": "sap.fe.templates.ListReport",
+                    "options": {
+                        "settings": {
+                            "entitySet": "Customers",
+                            "variantManagement": "Page",
+                            "navigation": {
+                                "Customers": {
+                                    "detail": {
+                                        "route": "CustomersObjectPage"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "CustomersObjectPage": {
+                    "type": "Component",
+                    "id": "CustomersObjectPage",
+                    "name": "sap.fe.templates.ObjectPage",
+                    "options": {
+                        "settings": {
+                            "editableHeaderContent": false,
+                            "entitySet": "Customers",
+                            "sectionLayout": "Tabs"
+                        }
+                    }
+                }
+            }
+        },
+        "extends": {
+            "extensions": {
+                "sap.ui.controllerExtensions": {}
+            }
+        }
+    },
+    "sap.fiori": {
+        "registrationIds": [],
+        "archeType": "transactional"
     }
-  },
-  "sap.fiori": {
-    "registrationIds": [],
-    "archeType": "transactional"
-  }
 }

@@ -1,64 +1,61 @@
 using ContactService as service from '../../srv/contact-service';
 
+annotate service.Customers with @(UI.LineItem: [
+    {
+        $Type: 'UI.DataField',
+        Label: '{i18n>firstname}',
+        Value: firstName,
+    },
+    {
+        $Type: 'UI.DataField',
+        Label: '{i18n>lastname}',
+        Value: lastName,
+    },
+    {
+        $Type: 'UI.DataField',
+        Label: '{i18n>telephone}',
+        Value: telephone,
+    },
+    {
+        $Type: 'UI.DataField',
+        Label: '{i18n>email}',
+        Value: email,
+    },
+    {
+        $Type: 'UI.DataField',
+        Value: visibleContactDetail,
+        Label: '{i18n>visiblecontactdetail}',
+    },
+]);
 annotate service.Customers with @(
-    UI.LineItem : [
+    UI.Facets : [
         {
-            $Type : 'UI.DataField',
-            Label : 'firstName',
-            Value : firstName,
+            $Type : 'UI.ReferenceFacet',
+            Label : 'Customer',
+            ID : 'Customer',
+            Target : '@UI.FieldGroup#Customer',
         },
-        {
-            $Type : 'UI.DataField',
-            Label : 'lastName',
-            Value : lastName,
-        },
-        {
-            $Type : 'UI.DataField',
-            Label : 'telephone',
-            Value : telephone,
-        },
-        {
-            $Type : 'UI.DataField',
-            Label : 'email',
-            Value : email,
-        },
-    ]
-);
-annotate service.Customers with @(
-    UI.FieldGroup #GeneratedGroup1 : {
+    ],
+    UI.FieldGroup #Customer : {
         $Type : 'UI.FieldGroupType',
         Data : [
             {
                 $Type : 'UI.DataField',
-                Label : 'First name',
                 Value : firstName,
-            },
-            {
+            },{
                 $Type : 'UI.DataField',
-                Label : 'Last name',
                 Value : lastName,
-            },
-            {
+            },{
                 $Type : 'UI.DataField',
-                Label : '{i18n>telephone}',
                 Value : telephone,
-            },
-            {
+            },{
                 $Type : 'UI.DataField',
-                Label : 'email',
                 Value : email,
             },
-        ],
-    },
-    UI.Facets : [
-        {
-            $Type : 'UI.ReferenceFacet',
-            ID : 'GeneratedFacet1',
-            Label : 'General Information',
-            Target : '@UI.FieldGroup#GeneratedGroup1',
-        },
-    ]
+            {
+                $Type : 'UI.DataField',
+                Value : visibleContactDetail,
+                Label : 'visibleContactDetail',
+            },],
+    }
 );
-annotate service.Customers with {
-    firstName @Common.FieldControl : #Mandatory
-};
