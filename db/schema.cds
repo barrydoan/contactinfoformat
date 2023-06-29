@@ -13,4 +13,5 @@ entity Customers : managed {
         visibleContactDetail : Boolean;
         telephone            : String(20);
         email                : String(20);
+        comment              : String;
 }
