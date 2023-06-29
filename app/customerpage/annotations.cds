@@ -30,17 +30,17 @@ annotate service.Customers with @(
         Data : [
             {
                 $Type : 'UI.DataField',
-                Label : 'firstName',
+                Label : 'First name',
                 Value : firstName,
             },
             {
                 $Type : 'UI.DataField',
-                Label : 'lastName',
+                Label : 'Last name',
                 Value : lastName,
             },
             {
                 $Type : 'UI.DataField',
-                Label : 'telephone',
+                Label : '{i18n>telephone}',
                 Value : telephone,
             },
             {
@@ -59,3 +59,6 @@ annotate service.Customers with @(
         },
     ]
 );
+annotate service.Customers with {
+    firstName @Common.FieldControl : #Mandatory
+};
