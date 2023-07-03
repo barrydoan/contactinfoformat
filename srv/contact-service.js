@@ -19,7 +19,9 @@ module.exports = cds.service.impl(srv => {
         }
         else {
             // single error
-            err.args = [...err.args, bundle.getText(err.element)]
+            if (err.code === 'ASSERT_FORMAT') {
+                err.args = [...err.args, bundle.getText(err.element)]
+            }
         }
     
     })
