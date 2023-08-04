@@ -13,6 +13,11 @@ annotate ContactService.Customers with @(UI.LineItem: [
         Label: '{i18n>lastname}',
     },
     {
+        $Type : 'UI.DataField',
+        Value : manager,
+        Label : '{i18n>Manager}',
+    },
+    {
         $Type     : 'UI.DataField',
         Value     : telephone,
         Label     : '{i18n>telephone}',
@@ -63,6 +68,11 @@ annotate ContactService.Customers with @(
                 Label: '{i18n>lastname}',
             },
             {
+                $Type : 'UI.DataField',
+                Value : manager,
+                Label : '{i18n>Manager}',
+            },
+            {
                 $Type     : 'UI.DataField',
                 Value     : telephone,
                 Label     : '{i18n>telephone}',
@@ -93,3 +103,56 @@ annotate ContactService.Customers with @(
         ],
     }
 );
+annotate ContactService.Customers with @(
+    UI.HeaderInfo : {
+        TypeName : 'Customer',
+        TypeNamePlural : 'Customers',
+    }
+);
+annotate ContactService.Customers with {
+    level @(Common.ValueList : {
+            $Type : 'Common.ValueListType',
+            CollectionPath : 'Levels',
+            Parameters : [
+                {
+                    $Type : 'Common.ValueListParameterInOut',
+                    LocalDataProperty : level,
+                    ValueListProperty : 'level',
+                },
+            ],
+        },
+        Common.ValueListWithFixedValues : true
+)};
+annotate ContactService.Levels with {
+    level @Common.Text : description
+};
+annotate ContactService.Customers with {
+    manager @(Common.ValueList : {
+            $Type : 'Common.ValueListType',
+            CollectionPath : 'Users',
+            Parameters : [
+                {
+                    $Type : 'Common.ValueListParameterInOut',
+                    LocalDataProperty : manager,
+                    ValueListProperty : 'username',
+                },
+                {
+                    $Type : 'Common.ValueListParameterDisplayOnly',
+                    ValueListProperty : 'name',
+                },
+                {
+                    $Type : 'Common.ValueListParameterDisplayOnly',
+                    ValueListProperty : 'email',
+                },
+                {
+                    $Type : 'Common.ValueListParameterDisplayOnly',
+                    ValueListProperty : 'phone',
+                },
+                {
+                    $Type : 'Common.ValueListParameterDisplayOnly',
+                    ValueListProperty : 'website',
+                },
+            ],
+        },
+        Common.ValueListWithFixedValues : true
+)};

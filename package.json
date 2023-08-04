@@ -6,6 +6,7 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
+    "@sap-cloud-sdk/http-client": "^3.4.0",
     "@sap/cds": "^6",
     "@sap/textbundle": "^4.2.0",
     "express": "^4"
@@ -27,6 +28,13 @@
         "kind": "sqlite",
         "credentials": {
           "database": "db.sqlite"
+        }
+      },
+      "jsonplaceholder": {
+        "kind": "rest",
+        "credentials": {
+          "url": "https://jsonplaceholder.typicode.com",
+          "retquestTimeout": 30000
         }
       }
     }

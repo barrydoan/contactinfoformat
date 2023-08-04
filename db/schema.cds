@@ -14,4 +14,14 @@ entity Customers : managed {
         telephone            : String(20);
         email                : String(20);
         comment              : String;
+        manager              : String;
+}
+
+@cds.persistence.skip
+entity Users {
+    username : String;
+    name     : String;
+    email    : String;
+    phone    : String;
+    website  : String;
 }

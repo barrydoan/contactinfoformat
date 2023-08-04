@@ -25,6 +25,24 @@ module.exports = cds.service.impl(srv => {
         }
     
     })
+
+    srv.on('READ', 'Users', async (req) => {
+
+        const result = []
+        const userApi = await cds.connect.to("jsonplaceholder");
+        var users = await userApi.tx(req).get('/users')
+        users.forEach((element, index) => {
+            const user = {}
+            user['username'] = element['username']
+            user['name'] = element['name']
+            user['email'] = element['email']
+            user['phone'] = element['phone']
+            user['website'] = element['website']
+            result.push(user)
+        })
+        return result
+        
+    })
     
     
 })
