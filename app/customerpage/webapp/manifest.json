@@ -81,7 +81,14 @@
             }
         },
         "resources": {
-            "css": []
+            "css": [
+                {
+                    "uri": "css/richtext.min.css"
+                }
+            ],
+            "js": [{
+                "uri": "js/jquery.richtext.min.js"
+            }]
         },
         "routing": {
             "routes": [
@@ -124,7 +131,21 @@
                         "settings": {
                             "editableHeaderContent": false,
                             "entitySet": "Customers",
-                            "sectionLayout": "Tabs"
+                            "sectionLayout": "Tabs",
+                            "controlConfiguration": {
+                                "@com.sap.vocabularies.UI.v1.FieldGroup#richText": {
+                                    "fields": {
+                                        "CustomContentFieldGroup": {
+                                            "label": "Rich text",
+                                            "template": "customerpage.ext.fragment.CustomField-RichText",
+                                            "position": {
+                                                "placement": "Before",
+                                                "anchor": "FieldGroup::Customer1"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -132,7 +153,11 @@
         },
         "extends": {
             "extensions": {
-                "sap.ui.controllerExtensions": {}
+                "sap.ui.controllerExtensions": {
+                    "sap.fe.templates.ObjectPage.ObjectPageController#customerpage::CustomersObjectPage": {
+                        "controllerName": "customerpage.ext.controller.CustomerObjectPageController"
+                    }
+                }
             }
         }
     },

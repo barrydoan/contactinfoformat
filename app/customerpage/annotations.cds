@@ -13,9 +13,9 @@ annotate ContactService.Customers with @(UI.LineItem: [
         Label: '{i18n>lastname}',
     },
     {
-        $Type : 'UI.DataField',
-        Value : manager,
-        Label : '{i18n>Manager}',
+        $Type: 'UI.DataField',
+        Value: manager,
+        Label: '{i18n>Manager}',
     },
     {
         $Type     : 'UI.DataField',
@@ -49,10 +49,24 @@ annotate ContactService.Customers with @(UI.LineItem: [
 
 annotate ContactService.Customers with @(
     UI.Facets               : [{
-        $Type : 'UI.ReferenceFacet',
-        Label : 'Customer',
-        ID    : 'Customer',
-        Target: '@UI.FieldGroup#Customer1',
+        $Type : 'UI.CollectionFacet',
+        ID    : 'collectionFacetSection',
+        Label : '{i18n>collectionSection}',
+        Facets: [
+            {
+                $Type : 'UI.ReferenceFacet',
+                Label : 'Customer',
+                ID    : 'Customer',
+                Target: '@UI.FieldGroup#Customer1',
+            },
+            {
+                $Type : 'UI.ReferenceFacet',
+                Label : 'RichText',
+                ID    : 'RichText',
+                Target: '@UI.FieldGroup#richText',
+            }
+
+        ],
     }, ],
     UI.FieldGroup #Customer1: {
         $Type: 'UI.FieldGroupType',
@@ -68,9 +82,9 @@ annotate ContactService.Customers with @(
                 Label: '{i18n>lastname}',
             },
             {
-                $Type : 'UI.DataField',
-                Value : manager,
-                Label : '{i18n>Manager}',
+                $Type: 'UI.DataField',
+                Value: manager,
+                Label: '{i18n>Manager}',
             },
             {
                 $Type     : 'UI.DataField',
@@ -95,64 +109,44 @@ annotate ContactService.Customers with @(
                 Value: visibleContactDetail,
                 Label: '{i18n>visiblecontactdetail}',
             },
-            {
-                $Type: 'UI.DataField',
-                Value: comment,
-                Label: 'comment',
-            },
         ],
     }
 );
-annotate ContactService.Customers with @(
-    UI.HeaderInfo : {
-        TypeName : 'Customer',
-        TypeNamePlural : 'Customers',
-    }
-);
+
+annotate ContactService.Customers with @(UI.HeaderInfo: {
+    TypeName      : 'Customer',
+    TypeNamePlural: 'Customers',
+});
+
 annotate ContactService.Customers with {
-    level @(Common.ValueList : {
-            $Type : 'Common.ValueListType',
-            CollectionPath : 'Levels',
-            Parameters : [
+    manager @(
+        Common.ValueList               : {
+            $Type         : 'Common.ValueListType',
+            CollectionPath: 'Users',
+            Parameters    : [
                 {
-                    $Type : 'Common.ValueListParameterInOut',
-                    LocalDataProperty : level,
-                    ValueListProperty : 'level',
+                    $Type            : 'Common.ValueListParameterInOut',
+                    LocalDataProperty: manager,
+                    ValueListProperty: 'username',
+                },
+                {
+                    $Type            : 'Common.ValueListParameterDisplayOnly',
+                    ValueListProperty: 'name',
+                },
+                {
+                    $Type            : 'Common.ValueListParameterDisplayOnly',
+                    ValueListProperty: 'email',
+                },
+                {
+                    $Type            : 'Common.ValueListParameterDisplayOnly',
+                    ValueListProperty: 'phone',
+                },
+                {
+                    $Type            : 'Common.ValueListParameterDisplayOnly',
+                    ValueListProperty: 'website',
                 },
             ],
         },
-        Common.ValueListWithFixedValues : true
-)};
-annotate ContactService.Levels with {
-    level @Common.Text : description
+        Common.ValueListWithFixedValues: true
+    )
 };
-annotate ContactService.Customers with {
-    manager @(Common.ValueList : {
-            $Type : 'Common.ValueListType',
-            CollectionPath : 'Users',
-            Parameters : [
-                {
-                    $Type : 'Common.ValueListParameterInOut',
-                    LocalDataProperty : manager,
-                    ValueListProperty : 'username',
-                },
-                {
-                    $Type : 'Common.ValueListParameterDisplayOnly',
-                    ValueListProperty : 'name',
-                },
-                {
-                    $Type : 'Common.ValueListParameterDisplayOnly',
-                    ValueListProperty : 'email',
-                },
-                {
-                    $Type : 'Common.ValueListParameterDisplayOnly',
-                    ValueListProperty : 'phone',
-                },
-                {
-                    $Type : 'Common.ValueListParameterDisplayOnly',
-                    ValueListProperty : 'website',
-                },
-            ],
-        },
-        Common.ValueListWithFixedValues : true
-)};

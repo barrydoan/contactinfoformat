@@ -1,0 +1,14 @@
+<core:FragmentDefinition
+    xmlns:richtexteditor="sap.ui.richtexteditor"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:coreHtml="sap.ui.core.HTML"
+    xmlns:commons="sap.suite.ui.commons"
+>
+    <TextArea
+        width="100%"
+        id="customRichText"
+        value="{comment}"
+    />
+</core:FragmentDefinition>
