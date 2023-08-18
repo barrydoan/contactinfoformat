@@ -53,7 +53,13 @@ annotate ContactService.Customers with @(
         Label : 'Customer',
         ID    : 'Customer',
         Target: '@UI.FieldGroup#Customer1',
-    }, ],
+    },
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : 'Comment',
+            ID : 'Comment',
+            Target : '@UI.FieldGroup#Comment',
+        }, ],
     UI.FieldGroup #Customer1: {
         $Type: 'UI.FieldGroupType',
         Data : [
@@ -94,11 +100,6 @@ annotate ContactService.Customers with @(
                 $Type: 'UI.DataField',
                 Value: visibleContactDetail,
                 Label: '{i18n>visiblecontactdetail}',
-            },
-            {
-                $Type: 'UI.DataField',
-                Value: comment,
-                Label: 'comment',
             },
         ],
     }
@@ -156,3 +157,14 @@ annotate ContactService.Customers with {
         },
         Common.ValueListWithFixedValues : true
 )};
+annotate ContactService.Customers with @(
+    UI.FieldGroup #Comment : {
+        $Type : 'UI.FieldGroupType',
+        Data : [
+            {
+                $Type : 'UI.DataField',
+                Value : comment,
+                Label : 'comment',
+            },],
+    }
+);
