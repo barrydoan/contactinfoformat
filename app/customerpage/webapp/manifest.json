@@ -132,10 +132,10 @@
                                             "template": "customerpage.ext.fragment.CommentExt",
                                             "position": {
                                                 "placement": "After",
-                                                "anchor": "Customer"
+                                                "anchor": "i18nContactInfo"
                                             },
                                             "type": "XMLFragment",
-                                            "title": "Comment custom"
+                                            "title": "{i18n>customSection}"
                                         }
                                     }
                                 }

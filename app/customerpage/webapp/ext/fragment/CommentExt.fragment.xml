@@ -5,11 +5,23 @@
     xmlns:macros="sap.fe.macros"
 >
     <VBox core:require="{handler: 'customerpage/ext/fragment/CommentExt'}">
+        <Label
+            text="{i18n>commentExt}:"
+            labelFor="commentExtDisplay"
+            visible="{= ${ui>/editMode} === 'Display'}"
+        />
         <FormattedText
+            id="commentExtDisplay"
             visible="{= ${ui>/editMode} === 'Display'}"
             htmlText="{comment}"
         />
+        <Label
+            text="{i18n>commentExt}:"
+            labelFor="commentExtEdit"
+            visible="{= ${ui>/editMode} === 'Editable'}"
+        />
         <richtexteditor:RichTextEditor
+            id="commentExtEdit"
             visible="{= ${ui>/editMode} === 'Editable'}"
             value="{comment}"
             ready="handler.onReady"
