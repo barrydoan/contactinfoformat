@@ -95,11 +95,6 @@ annotate ContactService.Customers with @(
                 Value: visibleContactDetail,
                 Label: '{i18n>visiblecontactdetail}',
             },
-            {
-                $Type: 'UI.DataField',
-                Value: comment,
-                Label: 'comment',
-            },
         ],
     }
 );
@@ -156,3 +151,14 @@ annotate ContactService.Customers with {
         },
         Common.ValueListWithFixedValues : true
 )};
+annotate ContactService.Customers with @(
+    UI.FieldGroup #Comment : {
+        $Type : 'UI.FieldGroupType',
+        Data : [
+            {
+                $Type : 'UI.DataField',
+                Value : comment,
+                Label : 'comment',
+            },],
+    }
+);

@@ -124,7 +124,22 @@
                         "settings": {
                             "editableHeaderContent": false,
                             "entitySet": "Customers",
-                            "sectionLayout": "Tabs"
+                            "sectionLayout": "Page",
+                            "content": {
+                                "body": {
+                                    "sections": {
+                                        "CommentExt": {
+                                            "template": "customerpage.ext.fragment.CommentExt",
+                                            "position": {
+                                                "placement": "After",
+                                                "anchor": "Customer"
+                                            },
+                                            "type": "XMLFragment",
+                                            "title": "Comment custom"
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
