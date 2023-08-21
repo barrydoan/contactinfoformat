@@ -4,7 +4,7 @@
     xmlns="sap.m"
     xmlns:macros="sap.fe.macros"
 >
-    <VBox>
+    <VBox core:require="{handler: 'customerpage/ext/fragment/CommentExt'}">
         <FormattedText
             visible="{= ${ui>/editMode} === 'Display'}"
             htmlText="{comment}"
@@ -12,6 +12,7 @@
         <richtexteditor:RichTextEditor
             visible="{= ${ui>/editMode} === 'Editable'}"
             value="{comment}"
+            ready="handler.onReady"
         />
     </VBox>
 </core:FragmentDefinition>
