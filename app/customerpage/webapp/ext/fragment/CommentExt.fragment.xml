@@ -14,6 +14,8 @@
             id="commentExtDisplay"
             visible="{= ${ui>/editMode} === 'Display'}"
             htmlText="{comment}"
+            width="100%"
+            height="400px"
         />
         <Label
             text="{i18n>commentExt}:"
@@ -25,6 +27,8 @@
             visible="{= ${ui>/editMode} === 'Editable'}"
             value="{comment}"
             ready="handler.onReady"
+            width="100%"
+            height="400px"
         />
     </VBox>
 </core:FragmentDefinition>
