@@ -53,13 +53,7 @@ annotate ContactService.Customers with @(
         Label : 'Customer',
         ID    : 'Customer',
         Target: '@UI.FieldGroup#Customer1',
-    },
-        {
-            $Type : 'UI.ReferenceFacet',
-            Label : 'Comment',
-            ID : 'Comment',
-            Target : '@UI.FieldGroup#Comment',
-        }, ],
+    }, ],
     UI.FieldGroup #Customer1: {
         $Type: 'UI.FieldGroupType',
         Data : [

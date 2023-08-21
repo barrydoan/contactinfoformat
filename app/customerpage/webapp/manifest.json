@@ -132,10 +132,10 @@
                                             "template": "customerpage.ext.fragment.CommentExt",
                                             "position": {
                                                 "placement": "After",
-                                                "anchor": "Comment"
+                                                "anchor": "Customer"
                                             },
-                                            "title": "Comment Custom",
-                                            "type": "XMLFragment"
+                                            "type": "XMLFragment",
+                                            "title": "Comment custom"
                                         }
                                     }
                                 }
